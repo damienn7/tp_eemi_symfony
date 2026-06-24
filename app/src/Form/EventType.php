@@ -21,19 +21,19 @@ class EventType extends AbstractType
                 'widget' => 'single_text',
             ])
             ->add('location')
-            ->add('imageName')
-            ->add('status')
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-            ])
+            // ->add('imageName')
+            // ->add('status')
+            // ->add('createdAt', null, [
+            //     'widget' => 'single_text',
+            // ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'id',
             ])
-            ->add('author', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
+            // ->add('author', EntityType::class, [
+            //     'class' => User::class,
+            //     'choice_label' => 'id',
+            // ])
         ;
     }
 
