@@ -25,3 +25,6 @@ Base : eventhub
 
 Confifure app/.env :
 DATABASE_URL="postgresql://eventhub:eventhub@db:5432/eventhub?serverVersion=16&charset=utf8"
+
+Execute migrations :
+docker compose exec app php bin/console doctrine:migrations:migrate
