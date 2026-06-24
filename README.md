@@ -11,6 +11,8 @@ docker compose run --rm app composer require symfony/twig-bundle doctrine/orm do
 
 docker compose run --rm app composer require --dev symfony/maker-bundle
 
+docker compose exec app composer require symfony/mailer symfonycasts/verify-email-bundle
+
 Run the project :
 docker compose up -d
 

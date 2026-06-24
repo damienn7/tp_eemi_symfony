@@ -32,6 +32,11 @@ services:
       - "8081:8080"
     depends_on:
       - db
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - "8025:8025"
+      - "1025:1025"
 
 volumes:
   eventhub_pgdata:
