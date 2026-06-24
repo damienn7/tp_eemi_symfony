@@ -5,6 +5,14 @@
 {% block body %}
     <h1>Event</h1>
 
+    {% if event.imageName %}
+    <img 
+        src="{{ asset('uploads/events/' ~ event.imageName) }}" 
+        alt="{{ event.title }}" 
+        style="max-width: 300px; height: auto;"
+    >
+    {% endif %}
+
     <table class="table">
         <tbody>
             <tr>
