@@ -1,0 +1,37 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: eventhub_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgresql://eventhub:eventhub@db:5432/eventhub?serverVersion=16&charset=utf8"
+
+  db:
+    image: postgres:16-alpine
+    container_name: eventhub_db
+    environment:
+      POSTGRES_DB: eventhub
+      POSTGRES_USER: eventhub
+      POSTGRES_PASSWORD: eventhub
+    volumes:
+      - eventhub_pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  adminer:
+    image: adminer
+    container_name: eventhub_adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+
+volumes:
+  eventhub_pgdata:
