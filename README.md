@@ -13,6 +13,8 @@ docker compose run --rm app composer require --dev symfony/maker-bundle
 
 docker compose exec app composer require symfony/mailer symfonycasts/verify-email-bundle
 
+docker compose exec app composer require symfony/apache-pack
+
 Run the project :
 docker compose up -d
 
