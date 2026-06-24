@@ -1,12 +1,12 @@
 # tp_eemi_symfony
 
-Init the project with Docker :
+Init the project with Docker : 
 docker compose build
 
-Install symfony :
+Install symfony : 
 docker compose run --rm app composer create-project symfony/skeleton:"8.1.*" .
 
-Install depedencies :
+Install depedencies : 
 docker compose run --rm app composer require symfony/twig-bundle doctrine/orm doctrine/doctrine-bundle doctrine/doctrine-migrations-bundle symfony/form symfony/validator symfony/security-bundle symfony/asset-mapper symfony/translation symfony/uid
 
 docker compose run --rm app composer require --dev symfony/maker-bundle
@@ -15,18 +15,20 @@ docker compose exec app composer require symfony/mailer symfonycasts/verify-emai
 
 docker compose exec app composer require symfony/apache-pack
 
-Run the project :
+docker compose exec app composer require symfony/asset
+
+Run the project : 
 docker compose up -d
 
-Adminer connection :
+Adminer connection : 
 Système : PostgreSQL
 Serveur : db
 Utilisateur : eventhub
 Mot de passe : eventhub
 Base : eventhub
 
-Confifure app/.env :
+Confifure app/.env : 
 DATABASE_URL="postgresql://eventhub:eventhub@db:5432/eventhub?serverVersion=16&charset=utf8"
 
-Execute migrations :
+Execute migrations : 
 docker compose exec app php bin/console doctrine:migrations:migrate
