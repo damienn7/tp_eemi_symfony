@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modération des événements{% endblock %}
+
+{% block body %}
+    <h1>Modération des événements</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Catégorie</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.title }}</td>
+                <td>{{ event.author.email }}</td>
+                <td>{{ event.category.name }}</td>
+                <td>{{ event.startsAt|date('d/m/Y H:i') }}</td>
+                <td>{{ event.status }}</td>
+                <td>
+                    <a href="{{ path('admin_event_publish', { id: event.id }) }}">Publier</a>
+                    <a href="{{ path('admin_event_reject', { id: event.id }) }}">Refuser</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun événement à modérer.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
